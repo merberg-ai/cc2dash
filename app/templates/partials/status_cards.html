@@ -1,0 +1,11 @@
+<div class="status-grid" id="status-grid">
+  <div class="card"><span class="label">Online</span><span class="value">{{ 'Yes' if status.is_online else 'No' }}</span></div>
+  <div class="card"><span class="label">Status</span><span class="value">{{ status.status or 'Unknown' }}</span></div>
+  <div class="card"><span class="label">Sub-status</span><span class="value">{{ status.sub_status or '—' }}</span></div>
+  <div class="card"><span class="label">File</span><span class="value">{{ status.current_file or '—' }}</span></div>
+  <div class="card"><span class="label">Progress</span><span class="value">{{ status.progress if status.progress is not none else '—' }}</span></div>
+  <div class="card"><span class="label">Nozzle</span><span class="value">{{ status.nozzle_temp if status.nozzle_temp is not none else '—' }} / {{ status.nozzle_target if status.nozzle_target is not none else '—' }}</span></div>
+  <div class="card"><span class="label">Bed</span><span class="value">{{ status.bed_temp if status.bed_temp is not none else '—' }} / {{ status.bed_target if status.bed_target is not none else '—' }}</span></div>
+  <div class="card"><span class="label">Elapsed</span><span class="value">{{ status.elapsed_seconds or '—' }}</span></div>
+  <div class="card"><span class="label">Remaining</span><span class="value">{{ status.remaining_seconds or '—' }}</span></div>
+</div>

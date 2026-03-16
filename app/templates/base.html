@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title or 'cc2dash' }}</title>
+  <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div>
+        <h1>cc2dash</h1>
+        <p class="muted">Centauri Carbon 2 dashboard scaffold</p>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/setup">Setup</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    {% block content %}{% endblock %}
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

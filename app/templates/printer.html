@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="grid two-col">
+  <div class="panel">
+    <h2>{{ printer.name }}</h2>
+    <p class="muted">{{ printer.ip_address }}{% if printer.model %} • {{ printer.model }}{% endif %}</p>
+    <div class="camera-shell">
+      {% if status.camera_url %}
+        <iframe src="{{ status.camera_url }}" title="Camera" loading="lazy"></iframe>
+      {% else %}
+        <div class="camera-placeholder">No camera URL configured</div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="panel" data-status-panel data-printer-id="{{ printer.id }}">
+    <h3>Status</h3>
+    {% include 'partials/status_cards.html' %}
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Recent Events</h3>
+  {% include 'partials/event_list.html' %}
+</section>
+{% endblock %}

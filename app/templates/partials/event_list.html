@@ -1,0 +1,13 @@
+{% if events %}
+  <ul class="event-list">
+    {% for event in events %}
+      <li>
+        <strong>{{ event.event_type }}</strong>
+        <span class="muted">{{ event.created_at }}</span>
+        {% if event.message %}<div>{{ event.message }}</div>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="muted">No events yet.</p>
+{% endif %}

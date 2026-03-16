@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="panel">
+  <h2>Setup</h2>
+  <p>This build can now probe a CC2 over LAN, attempt MQTT registration, and start a live monitor session after you save a printer. Discovery UI is still bare-bones, but the backend plumbing is now real.</p>
+</section>
+
+<section class="grid two-col">
+  <div class="panel">
+    <h3>Manual Add Printer</h3>
+    <form id="add-printer-form">
+      <label>Name<input name="name" value="Centauri Carbon 2" required></label>
+      <label>Printer IP<input name="ip_address" placeholder="192.168.1.50" required></label>
+      <label>Access Code<input name="access_code" placeholder="Printer LAN code / access code"></label>
+      <label>Camera URL<input name="camera_url" placeholder="Optional override"></label>
+      <button type="submit">Save Printer</button>
+    </form>
+    <pre id="setup-result" class="result"></pre>
+  </div>
+
+  <div class="panel">
+    <h3>Configured Printers</h3>
+    {% if printers %}
+      <ul class="printer-list">
+        {% for printer in printers %}
+          <li>
+            <strong>{{ printer.name }}</strong><br>
+            <span class="muted">{{ printer.ip_address }}</span><br>
+            <a href="/printer/{{ printer.id }}">Open dashboard</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="muted">No printers configured yet.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
